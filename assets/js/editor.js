@@ -74,11 +74,9 @@ class VditorOptions {
 		if (!this.vditor) {
 			return;
 		}
-
 		if (this.initOpts.hiddenInputHt) {
 			this.initOpts.hiddenInputHt.value = this.vditor.getHTML();
 		}
-
 		if (this.initOpts.hiddenInputMd) {
 			this.initOpts.hiddenInputMd.value = this.vditor.getValue();
 		}

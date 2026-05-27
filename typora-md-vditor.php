@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Typora MD Vditor
  * Plugin URI: https://github.com/mina998/typora-md-vditor
@@ -28,7 +29,7 @@ const PLUGIN_FILE = __FILE__;
 /**
  * 自动加载类
  */
-spl_autoload_register(function(string $class) {
+spl_autoload_register(function (string $class) {
     // 如果不是当前命名空间的类，直接返回
     if (str_starts_with($class, __NAMESPACE__) === false) {
         return;
@@ -59,3 +60,21 @@ add_action('init', function () {
         new File_Upload();
     }
 });
+
+/**
+ * 加载代码高亮资源
+ */
+add_action('wp_enqueue_scripts', function () {
+    if (is_singular() === false) {
+        return;
+    }
+    $post_type = get_post_type();
+    if (Helpers::is_supported_post_type($post_type) === false) {
+        return;
+    }
+    // 前端代码高亮
+    wp_enqueue_style('highlight', 'https://cdn.vyi.me/vditor/3.11.2/dist/js/highlight.js/styles/github.min.css');
+    wp_enqueue_script('highlight', 'https://cdn.vyi.me/vditor/3.11.2/dist/js/highlight.js/highlight.min.js');
+    wp_enqueue_script('frontend-md', plugin_dir_url(PLUGIN_FILE) . '/assets/js/frontend.js', [], VERSION, true);
+}, 9999);
+
