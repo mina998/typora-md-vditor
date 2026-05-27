@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/**
+ * CSS3
+ * 插件管理后台选项页面样式
+ */
+.typora-md-settings #typora-md-settings-title {
+  margin-bottom: 15px;
+}
+
+.typora-md-settings .typora-section {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.typora-md-settings .typora-section h2 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f1;
+  font-size: 16px;
+}
+
+.typora-md-settings .typora-section .description {
+  color: #646970;
+  margin: 4px 0 0;
+}
+
+.typora-md-settings .typora-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.typora-md-settings .typora-field-row:last-child {
+  margin-bottom: 0;
+}
+
+.typora-md-settings .typora-label {
+  width: 160px;
+  min-width: 140px;
+  flex-shrink: 0;
+  font-weight: 600;
+  padding-top: 4px;
+}
+
+.typora-md-settings .typora-input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.typora-md-settings .typora-input input[type="number"],
+.typora-md-settings .typora-input input[type="text"],
+.typora-md-settings .typora-input input[type="url"],
+.typora-md-settings .typora-input select {
+  width: 100%;
+  max-width: 400px;
+}
+
+.typora-md-settings .typora-input input[type="number"] {
+  max-width: 120px;
+}
+
+.typora-md-settings .typora-checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.typora-md-settings .typora-checkbox-grid label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.typora-md-settings .typora-checkbox-grid label input {
+  margin: 0;
+}
+
+.typora-md-settings .form-table th {
+  display: none;
+}

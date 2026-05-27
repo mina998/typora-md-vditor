@@ -1,0 +1,69 @@
+/**
+ * CSS
+ * css3+ 语法
+ * VDitor 编辑器样式
+ */
+
+
+/* 隐藏 WordPress 原生编辑器 */
+#wp-content-editor-container,
+#postdivrich,
+#wp-content-wrap {
+    display: none !important;
+}
+
+/* 图片预览和全屏时隐藏 WordPress 侧边栏和工具栏 */
+body:has(.vditor-img) #adminmenumain,
+body:has(.vditor-img) #wpadminbar,
+body:has(.vditor--fullscreen) #adminmenumain,
+body:has(.vditor--fullscreen) #wpadminbar {
+    display: none !important;
+}
+
+// 亮色
+#typora-md {
+    margin-top: 15px;
+
+    &.vditor--fullscreen {
+        margin-top: 0;
+    }
+
+    .vditor-reset {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 1.55em;
+            font-weight: 600;
+            line-height: 1.25;
+
+            margin-bottom: 16px;
+            margin-top: 24px;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid #eaecef;
+
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+}
+
+// 暗色
+#typora-md.vditor--dark {
+    .vditor-reset {
+
+        h1,
+        h2,
+        h3 {
+            color: #d1d5da;
+        }
+    }
+}
