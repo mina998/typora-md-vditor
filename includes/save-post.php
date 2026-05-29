@@ -41,11 +41,7 @@ class Save_Post
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
             return $data;
         }
-        // 检查是否有 Vditor 内容
-        $vditor_html = $_POST['vditor_ht_content'] ?? '';
-        if (empty($vditor_html)) {
-            return $data;
-        }
+
         // 验证 nonce
         $post_id = $postarr['ID'] ?? 0;
         $nonce = $_POST['_wpnonce'] ?? '';
@@ -56,8 +52,14 @@ class Save_Post
         if (!current_user_can('edit_posts')) {
             return $data;
         }
+
         // 写入 HTML 内容到 post_content
-        $data['post_content'] = $vditor_html;
+        $data['post_content']          = wp_kses_post(
+            wp_unslash($_POST['vditor_ht_content'] ?? '')
+        );
+        $data['post_content_filtered'] = wp_kses_post(
+            wp_unslash($_POST['vditor_md_content'] ?? '')
+        );
 
         return $data;
     }

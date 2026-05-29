@@ -59,7 +59,7 @@ class Editor_Render
             return;
         }
         // Vditor Style
-        wp_enqueue_style('vditor', 'https://cdn.vyi.me/vditor/3.11.2/dist/index.css', [], $this->vditor_version);
+        wp_enqueue_style('vditor', CDN_PREFIX . '/dist/index.css', [], $this->vditor_version);
         // Vditor Override Styles
         wp_enqueue_style('editor', plugin_dir_url(PLUGIN_FILE) . 'assets/css/editor.css', ['vditor'], $this->vditor_version);
         // editor JS
@@ -81,15 +81,15 @@ class Editor_Render
             $locale = 'en_US';
         }
         // 通用变量参数
-        $general                 = Typora_Config::get_plugin_options('general');
-        $general['upload_url']   = admin_url('admin-ajax.php');
-        $general['nonce']        = wp_create_nonce(VDITOR_NONCE_NAME);
-        $general['post_content'] = $post->post_content;
-        $general['editor_id']    = 'typora-md';
+        $general               = Typora_Config::get_plugin_options('general');
+        $general['upload_url'] = admin_url('admin-ajax.php');
+        $general['nonce']      = wp_create_nonce(VDITOR_NONCE_NAME);
+        $general['post_md']    = wp_specialchars_decode( $post->post_content_filtered, ENT_QUOTES );
+        $general['editor_id']  = 'typora-md';
         // Vditor 内部初始化参数
-        $vidtor                  = Typora_Config::get_plugin_options('vidtor');
-        $vidtor['lang']          = $locale;
-        $vidtor['icon']          = 'material'; // ant, material
+        $vidtor                = Typora_Config::get_plugin_options('vidtor');
+        $vidtor['lang']        = $locale;
+        $vidtor['icon']        = 'material'; // ant, material
         // 返回值
         return [ 'init' => $general, 'opts' => $vidtor, ];
     }

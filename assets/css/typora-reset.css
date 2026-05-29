@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/**
+ * 美化前端内容 代码 块 ....
+**/
+#typora-md-render {
+  max-width: 800px !important;
+  margin: auto;
+  /* 代码块 */
+  /* 数学公式 */
+}
+
+#typora-md-render pre {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  position: unset;
+  padding: 0;
+  /* 顶栏 */
+}
+
+#typora-md-render pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+#typora-md-render pre .vditor-copy {
+  position: unset;
+  background-color: #156;
+  display: flex;
+  justify-content: space-between;
+  padding: .25em 1em;
+  color: aliceblue;
+}
+
+#typora-md-render pre .vditor-copy span {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  position: unset;
+  justify-content: center;
+}
+
+#typora-md-render pre .vditor-copy span.vditor-lang {
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+}
+
+#typora-md-render pre .vditor-copy span.vditor-tooltipped {
+  position: relative;
+  right: 0;
+  top: 0;
+}
+
+#typora-md-render pre .vditor-copy span svg {
+  color: #edeff1;
+}
+
+#typora-md-render .katex-display > .katex {
+  font-size: 2rem;
+  text-align: left;
+}

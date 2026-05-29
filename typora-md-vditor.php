@@ -14,18 +14,17 @@
  */
 
 declare(strict_types=1);
-
 namespace TyporaMdVditor;
-
 defined('ABSPATH') || exit();
 
 // 插件版本
-const VERSION = '1.0.0';
-const OPTION_NAME = 'typora_md_vditor';
+const VERSION              = '1.0.0';
+const OPTION_NAME          = 'typora_md_vditor';
 const LOCALIZE_SCRIPT_NAME = __NAMESPACE__;
-const VDITOR_NONCE_NAME = 'typora_md_vditor_nonce';
-const PLUGIN_DIR  = __DIR__;
-const PLUGIN_FILE = __FILE__;
+const VDITOR_NONCE_NAME    = 'typora_md_vditor_nonce';
+const PLUGIN_DIR           = __DIR__;
+const PLUGIN_FILE          = __FILE__;
+const CDN_PREFIX           = 'https://cdn.vyi.me/vditor/3.11.2';
 /**
  * 自动加载类
  */
@@ -42,7 +41,7 @@ spl_autoload_register(function (string $class) {
     $class_path = PLUGIN_DIR . '/includes/' . strtolower($class_name) . '.php';
     $class_path = wp_normalize_path($class_path);
     if (file_exists($class_path)) {
-        require $class_path;
+        require($class_path);
     }
 });
 
@@ -60,21 +59,5 @@ add_action('init', function () {
         new File_Upload();
     }
 });
-
-/**
- * 加载代码高亮资源
- */
-add_action('wp_enqueue_scripts', function () {
-    if (is_singular() === false) {
-        return;
-    }
-    $post_type = get_post_type();
-    if (Helpers::is_supported_post_type($post_type) === false) {
-        return;
-    }
-    // 前端代码高亮
-    wp_enqueue_style('highlight', 'https://cdn.vyi.me/vditor/3.11.2/dist/js/highlight.js/styles/github.min.css');
-    wp_enqueue_script('highlight', 'https://cdn.vyi.me/vditor/3.11.2/dist/js/highlight.js/highlight.min.js');
-    wp_enqueue_script('frontend-md', plugin_dir_url(PLUGIN_FILE) . '/assets/js/frontend.js', [], VERSION, true);
-}, 9999);
+new Frontend();
 

@@ -144,32 +144,8 @@ class Typora_Config
         $vidtor['mode']    = 'ir';      // 默认编辑模式
         // 默认工具栏项
         $vidtor['toolbar'] = [
-            'emoji',
-            'headings',
-            'bold',
-            'italic',
-            'strike',
-            'link',
-            '|',
-            'list',
-            'ordered-list',
-            'check',
-            '|',
-            'quote',
-            'line',
-            'code',
-            'inline-code',
-            '|',
-            'upload',
-            'table',
-            '|',
-            'undo',
-            'redo',
-            '|',
-            'preview',
-            'fullscreen',
-            'outline',
-            'edit-mode',
+            'emoji', 'headings', 'bold', 'italic', 'strike', 'link', '|', 'list', 'ordered-list', 'check', '|', 'quote', 'line', 'code', 'inline-code', '|', 
+            'upload', 'table', '|', 'undo', 'redo', '|', 'preview', 'fullscreen', 'outline', 'edit-mode',
         ];
 
         // 管理员选项

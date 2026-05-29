@@ -28,7 +28,14 @@ body:has(.vditor--fullscreen) #wpadminbar {
         margin-top: 0;
     }
 
+    pre>code {
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
     .vditor-reset {
+
+        padding: 4rem !important;
 
         h1,
         h2,
@@ -52,6 +59,12 @@ body:has(.vditor--fullscreen) #wpadminbar {
             padding-left: 0;
             padding-right: 0;
         }
+
+        /* 数学公式 */
+        .katex-display>.katex {
+            text-align: left;
+        }
+
     }
 
 }

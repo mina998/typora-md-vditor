@@ -2,7 +2,6 @@
 
 import Vditor from "https://cdn.vyi.me/vditor/3.11.2/dist/index.esm.js";
 import WpVditorUpload from "/wp-content/plugins/typora-md-vditor/assets/js/upload.js";
-import TurndownService from "https://cdn.vyi.me/turndown/7.2.4/turndown.es.js";
 
 /**
  * Vditor 编辑器配置类
@@ -15,13 +14,13 @@ class VditorOptions {
 	 */
 	constructor(init = {}, opts = {}) {
 		Object.assign(this, opts);
-        // Html to Markdown
-		const turndown = new TurndownService();
-
+   
 		this.cdn       = "https://cdn.vyi.me/vditor/3.11.2";
 		this.upload    = new WpVditorUpload(init);
 		this.initOpts  = init;
-		this.value     = turndown.turndown(init.post_content ?? "");
+		this.value     = init.post_md;
+        this.tab       = '    ';
+        this.width     = '100%';
 		this.minHeight = 400;
 		// 编辑器UI主题
         this.theme     = opts.theme;
@@ -35,6 +34,9 @@ class VditorOptions {
 			theme: {
 				current: opts.theme,
 			},
+            hljs: {
+                lineNumber: true,
+            }
 		};
         // 计算输入文本
 		this.counter   = {
@@ -99,6 +101,9 @@ class VditorOptions {
  * @param {Event} event
  */
 addEventListener("DOMContentLoaded", (event) => {
+
+    console.log(TyporaMdVditor);
+    
 	if (typeof TyporaMdVditor === "undefined") {
 		console.error("TyporaMdVditor configuration object is not defined.");
 		return;

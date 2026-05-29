@@ -27,6 +27,16 @@ body:has(.vditor--fullscreen) #wpadminbar {
   margin-top: 0;
 }
 
+#typora-md pre > code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+#typora-md .vditor-reset {
+  padding: 4rem !important;
+  /* 数学公式 */
+}
+
 #typora-md .vditor-reset h1,
 #typora-md .vditor-reset h2,
 #typora-md .vditor-reset h3,
@@ -46,6 +56,10 @@ body:has(.vditor--fullscreen) #wpadminbar {
   border-bottom: 1px solid #eaecef;
   padding-left: 0;
   padding-right: 0;
+}
+
+#typora-md .vditor-reset .katex-display > .katex {
+  text-align: left;
 }
 
 #typora-md.vditor--dark .vditor-reset h1,
